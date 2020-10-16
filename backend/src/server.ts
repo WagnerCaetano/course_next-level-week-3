@@ -1,5 +1,6 @@
 import express from "express";
 import "express-async-errors";
+import cors from "cors";
 import "./database/connection";
 import path from "path";
 import errorHandler from "./errors/handler";
@@ -14,5 +15,7 @@ app.use(routes);
 app.use("/uploads", express.static(path.join(__dirname, "..", "uploads")));
 
 app.use(errorHandler);
+
+app.use(cors());
 
 app.listen(3333);
